@@ -26,8 +26,8 @@ def GetPredictions(DSMonHoc, MSSV):
     # get model from file
     model = joblib.load('./app/recommender/svdModel.pkl')
     # get predictions
-    predictions = []
+    predictions = {}
     for MonHoc in DSMonHoc:
         prediction = model.predict(uid = MSSV, iid = MonHoc)
-        predictions.append(prediction)
+        predictions[MonHoc] = prediction.est
     return predictions
