@@ -14,7 +14,7 @@ def TrainModel ():
     df_train = df_train.dropna(how='any',axis=0)
     reader = Reader(rating_scale=(0, 10))
     data = Dataset.load_from_df(df_train[['MSSV', 'MaMonHoc', 'Diem']], reader)
-    algo = SVD(n_factors = 100, n_epochs = 20, lr_all = 0.01, reg_all = 0.1)
+    algo = SVD()
     trainset = data.build_full_trainset()
     # fit the algorithm on the trainset 
     algo.fit(trainset)
