@@ -16,8 +16,3 @@ class DuLieuHuanLuyen(db.Model):
     
     def getAll():
         return DuLieuHuanLuyen.query.all()
-    
-    def toDataFrame(table):
-        df = pd.DataFrame([(r.MSSV, r.MaMonHoc, r.Diem) for r in table], 
-                          columns=['MSSV', 'MaMonHoc', 'Diem'])
-        return df

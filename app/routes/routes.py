@@ -12,7 +12,7 @@ def train():
 
 @app.route('/predict', methods = ['POST'])
 def predict():
-    MSSV = int(request.json['mssv'])
+    MSSV = request.json['mssv']
     DSMonHoc = request.json['dsmonhoc']
     predictions = RS.GetPredictions(DSMonHoc, MSSV)
     response = jsonify({'predictions': predictions})
